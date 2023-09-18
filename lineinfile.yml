@@ -1,0 +1,9 @@
+---
+- name: edit a file
+  hosts: 192.168.101.39
+  tasks:
+    - name: edit a file 
+      lineinfile:
+           path: /etc/resolv.conf
+           line: nameserver 8.8.8.8
+

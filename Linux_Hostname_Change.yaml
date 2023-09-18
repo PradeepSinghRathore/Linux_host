@@ -1,0 +1,9 @@
+---
+- name: Linux Hostname Change 
+  hosts: CDG-Pradeep-Ansible-Client-Node2
+  remote_user: root
+  tasks:
+    - name: Set a hostname
+      ansible.builtin.hostname:
+        name: CDG-Pradeep-Ansible-Client-Node1
+

@@ -1,0 +1,37 @@
+--- #MY PLAYBOOK
+- hosts: Linux_Host
+  become: yes
+  connection: ssh
+
+  tasks:
+          - name: install  HTTPD server on centos 8
+            dnf:
+             name: httpd
+             state: latest
+
+          - name: Enable service to start on boot up
+            service:
+                    name: httpd
+                    state: started
+
+          - name: Creating a file with content
+            copy:
+              dest: "/var/www/html/index.html"
+              content: "This is my first web page"
+
+          - name: Enable service to start on boot up
+            service:
+              name: httpd
+              state: started
+
+          - name: open firewall
+            ansible.posix.firewalld:
+              service: http
+              state: enabled
+              immediate: true
+              permanent: true          
+          
+          - name: Confirm
+            ansible.builtin.uri:
+              url: "http://192.168.100.111"
+

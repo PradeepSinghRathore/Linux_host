@@ -1,0 +1,9 @@
+---
+- name: update the server
+  hosts: CDG-Pradeep-Ansible-Client-Node2
+  become: yes
+  tasks:
+    - name: update server
+      yum:
+        name: '*'
+        state: latest   

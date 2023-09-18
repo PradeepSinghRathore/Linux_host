@@ -1,0 +1,7 @@
+---
+- name: debug test
+  hosts: Linux_Host
+  tasks:
+    - name: test 
+      debug:
+        msg:  system gateway is {{ ansible_default_ipv4.gateway }}

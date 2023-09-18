@@ -1,0 +1,19 @@
+---
+
+- name: File Create
+  hosts: CDG_Ansible_Linux_Test_node01
+  become: yes
+  connection: ssh
+  tasks:
+    - name: create a file
+      file:
+        name: pradeep
+        path: /PR/pradeep
+        state: touch
+
+  tasks:
+    - name: Creating a file with content
+      copy:
+        dest: "/PR/pradeep"
+        content: "####################################   Hitachi Systems India Pvt. Ltd.   ####################################"
+                

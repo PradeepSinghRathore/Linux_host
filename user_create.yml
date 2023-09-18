@@ -1,0 +1,15 @@
+---
+- name: user create
+  hosts: Linux_Host
+  become: yes
+  connection: ssh
+  tasks:
+          - name: add the user
+            ansible.builtin.user:
+              name: pooja
+              password: $6$fDOqm8c4pbjJOL1S$yGrpO47noZYZ21YI79RrU8g94Xt.g3nnwq3aybFBhuMxXxpL3xGVmmqqhMaXRhXOrkOkQtj0xSgvAxkFKj5FS/
+              uid: 1012
+              createhome: yes
+              home: /home/pradeep
+
+

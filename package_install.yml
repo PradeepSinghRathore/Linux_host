@@ -1,0 +1,29 @@
+---
+- name: Install a pacakage 
+  hosts: Linux_Host
+  tasks:
+    - name: Install a Httpd pacakage
+      yum:
+       name: httpd
+       state: latest
+
+    - name: Enable service to start on boot up
+      service:
+          name: httpd
+          state: started
+    
+    - name: Creating a file with content
+      copy:
+        dest: "/var/www/html/index.html"          
+        content: "This is my first web page"
+      
+    - name: Enable a firewalld    
+      firewalld:
+        service: https
+        permanent: yes
+        state: enabled
+
+    - name: Confirm
+      ansible.builtin.uri:
+       url: "http://192.168.101.31"
+

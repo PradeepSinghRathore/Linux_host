@@ -1,0 +1,16 @@
+--- #MY PLAYBOOK
+- hosts: CDG_Ansible_Linux_Test_node01
+  become: yes
+  connection: ssh
+  
+  tasks:
+          - name: install  HTTPD server on centos 8
+            dnf: 
+             name: httpd
+             state: latest 
+
+          - name: Enable service to start on boot up
+            service:
+                    name: httpd
+                    state: started       
+

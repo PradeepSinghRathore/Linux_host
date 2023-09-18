@@ -1,0 +1,12 @@
+---
+- name: genrate ssh key
+  hosts: Linux_Host
+  remote_user: root
+  tasks:
+   - name: genrate ssh key for user sumit
+     user:
+       name: sumit
+       generate_ssh_key: yes
+       ssh_key_bits: 2048
+       ssh_key_file: .ssh/id_my_rsa
+            

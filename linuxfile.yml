@@ -1,0 +1,13 @@
+---
+
+
+- name: create a file
+  hosts: 192.168.101.31
+  become: yes
+  connection: ssh
+  tasks:
+    - name: create a new empty file 
+      file:
+        name: testfile
+        path: /root/testfile
+        state: touch 

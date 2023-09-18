@@ -1,0 +1,11 @@
+---
+- name:  redhat_subscription manage 
+  hosts: CDG-Pradeep-Ansible-Client-Node2
+  remote_user: root
+  tasks:
+    - name:  manage redhat_subscription  
+      redhat_subscription: 
+            username: Pournima.Makasare 
+            password: Welcome@2019
+            state: present
+            auto_attach: true

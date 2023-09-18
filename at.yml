@@ -1,0 +1,10 @@
+---
+- name: run commands in future 
+  hosts: Linux_Host
+  tasks:
+    - name:  run commands in future
+      at:
+       command: ls -a /root/  >> /root/testfile
+       count: 1
+       units: minutes
+       

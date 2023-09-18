@@ -1,0 +1,22 @@
+---
+- name: attach storage from the netapp
+  hosts: Linux_Host
+  tasks:
+    - name: install packages
+      yum:
+       name:
+        - iscsi-initiator-utils-6.2.1.4-4.git095f59c.el8.x86_64
+        - device-mapper-multipath.x86_64
+       state: latest
+
+    - name: start and enable the service
+      service:
+         name: iscsid
+         state: started
+         enabled: yes
+    
+    - name: start and enable the service
+      service:
+         name: multipathd
+         state: started
+         enabled: yes

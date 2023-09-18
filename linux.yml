@@ -1,0 +1,10 @@
+---
+- name: create a file
+  hosts: Linux_Host
+  tasks:
+    - name: create a file 
+      file:
+        name: testfile
+        path: /root/testfile
+        state: touch
+

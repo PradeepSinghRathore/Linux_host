@@ -1,0 +1,25 @@
+---
+- name: user create
+  hosts: CDG_Ansible_Linux_Test_node01
+  become: yes
+  connection: ssh
+  tasks:
+          - name: Disk usage from command module
+            command: df -h
+            register: disk  
+          - debug:
+                  var: disk
+
+          - name: MEM usage from command module
+            command: free -m
+            register: mem
+          - debug:
+                  var: mem
+
+          - name: CPU usage from shell module
+            shell: "top -b -n 1"
+            register: cpu
+          - debug:
+                  var: cpu
+
+

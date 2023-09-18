@@ -1,0 +1,10 @@
+--- #MY PLAYBOOK
+- hosts: CDG_Ansible_Linux_Test_node01
+  become: yes
+  connection: ssh
+
+  tasks:
+          - name: URL check      
+            ansible.builtin.uri:
+              url: "http://192.168.100.111"
+

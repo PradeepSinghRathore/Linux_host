@@ -1,0 +1,23 @@
+--- #MY PLAYBOOK
+- name: Firewall
+  hosts: CDG_Ansible_Linux_Test_node01
+  become: yes
+  connection: ssh
+
+  tasks:
+    - name: Firewall Rule
+      firewalld:
+        permanent: yes
+        immediate: yes
+        service: "{{ item }}"
+        state: enabled
+      with_items:
+        - http
+        - https
+
+
+    - name: Enable service to start on boot up
+      service:
+        name: httpd
+        state: started
+

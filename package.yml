@@ -1,0 +1,11 @@
+---
+- name: Download package using yum
+  hosts: Linux_Host
+  remote_user: root
+  tasks: 
+    - name: Download package using yum 
+      yum:
+       name: 
+          - httpd
+       state: present
+       

@@ -1,0 +1,12 @@
+---
+
+- name: File Create
+  hosts: CDG_Ansible_Linux_Test_node01
+  become: yes
+  connection: ssh
+  tasks:
+    - name: Creating a file with content
+      copy:
+        dest: "/var/www/html/index.html"
+        content: "####################################   Hitachi Systems India Pvt. Ltd.   ####################################"
+                

@@ -1,0 +1,11 @@
+---
+- name: set the cronjob 
+  hosts: Linux_Host
+  tasks:
+    - name: set the cronjob
+      cron:
+        name: "Create a blank file"
+        user: "root"
+        minute: 16
+        hour: 04
+        job: "touch /root/sumit"

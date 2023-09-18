@@ -1,0 +1,20 @@
+---
+- name: Configure the company Yum repositories
+  hosts: Linux_CentOStest 
+  connection: ssh 
+  tasks:
+    - name: Ensure Example Repo exists
+      yum_repository:
+        file: local
+        name: localrepo
+        description: localrepo
+        baseurl: http://192.168.100.112/CentOSrepo/
+        enabled: yes
+        gpgcheck: no 
+        state: present 
+    - name: clear yum cache 
+      command: yum clean all 
+
+    - name: repolist check enabled 
+      command: yum repolist all
+

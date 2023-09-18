@@ -1,0 +1,11 @@
+---
+- name: yum group
+  hosts: Linux_Host
+  remote_user: root
+  tasks:
+    - name: Install Development Tools
+      yum:
+       name: '@Development Tools' 
+       state: present
+
+#With the yum Ansible module, you must prefix group names with @. Remember that you can retrieve the list of groups with the yum group list command.
